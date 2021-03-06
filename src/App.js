@@ -1,9 +1,10 @@
+import Proptypes from "prop-types";
 
 function App() {
   const profiles = [
     {name: "Taro", age: 10},
     {name: "Hanako", age: 5},
-    {name: "No Name"}
+    {name: 10}
   ]
   return (
     <>
@@ -20,8 +21,8 @@ const User = (props) => {
   return <div>Hi, I am {props.name}, and {props.age} years old.</div>
 }
 
-User.defaultProps = {
-  age: 1
+User.propTypes = {
+  // eslint-disable-line
+  name: PropTypes.string
 }
-
 export default App;
