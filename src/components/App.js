@@ -1,28 +1,22 @@
-import Proptypes from "prop-types";
+import { connect } from 'react-redux'
 
-function App() {
-  const profiles = [
-    {name: "Taro", age: 10},
-    {name: "Hanako", age: 5},
-    {name: 10}
-  ]
+import { increment, decrement } from '../actions'
+
+function App(props) {
   return (
     <>
-    {
-      profiles.map((profile, index) => {
-        return <User name={profile.name} age={profile.age} key={index} />
-      })
-    }
+      <div> value: { props.value }</div>
+      <button onClick={ props.increment }>+1</button>
+      <button onClick={ props.decrement }>-1</button>
     </>
-  );
+  )
 }
 
-const User = (props) => {
-  return <div>Hi, I am {props.name}, and {props.age} years old.</div>
-}
+const mapStateToProps = state => ({ value: state.count.value })
+// const mapDispatchToProps = dispatch => ({
+//   increment: () => dispatch(increment()),
+//   decrement: () => dispatch(decrement())
+// })
+const mapDispatchToProps = ({ increment, decrement })
 
-User.propTypes = {
-  // eslint-disable-line
-  name: PropTypes.string
-}
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App)
