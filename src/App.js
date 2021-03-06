@@ -1,9 +1,9 @@
 
 function App() {
+  const greeting = "hi, tom";
+  const dom = <h1 classname="foo">{greeting}</h1>
   return (
-    <h1>
-          hello world
-    </h1>
+    dom
   );
 }
 
