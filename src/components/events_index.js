@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import _ from 'lodash'
 
 import { readEvents } from '../actions'
@@ -20,19 +21,23 @@ function EventsIndex(props) {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Body</th>
-        </tr>
-      </thead>
+    <>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Body</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {renderEvents()}
-      </tbody>
-    </table>
+        <tbody>
+          {renderEvents()}
+        </tbody>
+      </table>
+
+      <Link to="events/new">New Event</Link>
+    </>
   )
 }
 
